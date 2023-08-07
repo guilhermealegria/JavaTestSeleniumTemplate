@@ -1,0 +1,24 @@
+pipeline {
+    agent any 
+    tools{
+         maven 'M3'
+        }
+    stages {
+        stage('Initialize') {
+            steps {
+                sh '''
+                    echo "M3 = $PATH{M3}"
+                    echo "WORKSPACE = ${WORKSPACE}"
+                '''
+            }
+        }
+         stage('Build') {
+            environment{
+                    WORKSPACE = '/var/jenkins_home/workspace/TestJenkinsFile/TemplateForJava/'
+            }
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+    }
+}
