@@ -17,7 +17,7 @@ pipeline {
                     WORKSPACE = '/var/jenkins_home/workspace/TestJenkinsFile/TemplateForJava/'
             }
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -Dmaven.test.failure.ignore=true install'
             }
         }
     }
