@@ -1,7 +1,9 @@
 Feature: App Test
 This feature to test
 
+Background:
+    Given o navegador está aberto
+
 Scenario: show brownser
-Given o navegador está aberto
-When preencho a url "https://www.google.com/"
-Then é apresentado o titulo da pagina
+    And preencho a url "https://www.google.com/"
+    Then é apresentado o titulo da pagina

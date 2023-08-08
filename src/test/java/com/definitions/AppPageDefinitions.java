@@ -2,6 +2,7 @@ package com.definitions;
 
 
 import actions.AppPageActions;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,13 +14,7 @@ import java.net.MalformedURLException;
 
 public class AppPageDefinitions {
 
-    @Given("o navegador está aberto")
-    public void openBrowser() throws MalformedURLException {
-        //HookSteps.before_setUp();
-        Assert.assertTrue(HelpDriverClass.getDriver() != null);
-    }
-
-    @When("preencho a url {string}")
+    @And("preencho a url {string}")
     public void acessUrl(String url){
         HelpDriverClass.goToUrl(url);
     }
