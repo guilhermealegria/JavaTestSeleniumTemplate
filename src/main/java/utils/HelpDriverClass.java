@@ -1,18 +1,25 @@
 package utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class HelpDriverClass {
     private static WebDriver driver;
     private static HelpDriverClass help;
-    private HelpDriverClass(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+    private HelpDriverClass() throws MalformedURLException {
+        ChromeOptions chromeOpt = new ChromeOptions();
+        chromeOpt.setCapability("browserVersion","114.0");
+        chromeOpt.setCapability("platformName","linux");
+        driver = new RemoteWebDriver(new URL("https://selenium-hub.appai.org.br/"), chromeOpt);
         driver.manage().window().maximize();
     }
-    public static void setUpDriver() {
+    public static void setUpDriver() throws MalformedURLException {
         if(help==null){
             help = new HelpDriverClass();
         }
