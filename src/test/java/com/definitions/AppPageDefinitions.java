@@ -8,13 +8,15 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import utils.HelpDriverClass;
 
+
 import java.net.MalformedURLException;
 
 public class AppPageDefinitions {
 
     @Given("o navegador está aberto")
     public void openBrowser() throws MalformedURLException {
-        HelpDriverClass.setUpDriver();
+        //HookSteps.before_setUp();
+        Assert.assertTrue(HelpDriverClass.getDriver() != null);
     }
 
     @When("preencho a url {string}")
