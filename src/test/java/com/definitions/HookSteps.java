@@ -38,4 +38,9 @@ public class HookSteps {
         HelpDriverClass.goToUrl("https://teste.multicert.com/onlinestore/?lang=pt&redirect=%2Forder%2Fcdqi%2Fcharacteristics");
     }
 
+    @And ("navego a pagina de loja online")
+    public void acessUrlLoja(){
+        HelpDriverClass.goToUrl("https://teste.multicert.com/onlinestore/?lang=pt");
+    }
+
 }
