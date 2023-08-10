@@ -1,10 +1,13 @@
 package com.definitions;
 
+import actions.CaracteristicadoCertificadoPageActions;
+import actions.LoginPageActions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,6 +16,7 @@ import utils.HelpDriverClass;
 import java.net.MalformedURLException;
 
 public class HookSteps {
+    LoginPageActions page = new LoginPageActions();
 
     @Before
     public static void before_setUp() throws MalformedURLException {
@@ -41,6 +45,13 @@ public class HookSteps {
     @And ("navego a pagina de loja online")
     public void acessUrlLoja(){
         HelpDriverClass.goToUrl("https://teste.multicert.com/onlinestore/?lang=pt");
+    }
+
+    @When("efetuo login com sucesso")
+    public CaracteristicadoCertificadoPageActions preencherCamposdeLogincomUsuarioValido(){
+        page.preencherLoginSucess("guilhermemoraes.3@gmail.com", "@Alegria1991");
+        page.clickBotaoIniciarSessao();
+        return new CaracteristicadoCertificadoPageActions();
     }
 
 }

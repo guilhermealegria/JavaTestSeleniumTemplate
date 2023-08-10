@@ -33,7 +33,7 @@ public class HelpDriverClass {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        this.wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+        this.wait = new WebDriverWait(driver, Duration.ofMillis(10000));
 
     }
     public static void setUpDriver(String browsertype) throws MalformedURLException {
