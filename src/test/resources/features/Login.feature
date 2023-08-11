@@ -1,4 +1,4 @@
-@execution
+
 Feature: Efetuar Login
 
   Background:
