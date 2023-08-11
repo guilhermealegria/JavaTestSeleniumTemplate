@@ -12,8 +12,7 @@ import java.util.List;
 
 public class LoginPageActions {
     LoginPageLocators locator = new LoginPageLocators();
-    HelpDriverClass help = new HelpDriverClass();
-    Actions act = new Actions(help.getDriver());
+    Actions act = new Actions(HelpDriverClass.getDriver());
 
     public LoginPageActions(){
         this.locator = new LoginPageLocators();
@@ -26,13 +25,13 @@ public class LoginPageActions {
     }
 
     public boolean modalLoginVisivel() {
-        help.getWaitElementVisivel(locator.modalLogin.findElement(By.tagName("h3")));
+        HelpDriverClass.getWaitElementVisivel(locator.modalLogin.findElement(By.tagName("h3")));
         return locator.modalLogin.findElement(By.tagName("h3")).getText().contains("Bem-vindo novamente!");
     }
 
     public void preencherLoginSucess(String mail, String s) {
-        help.getWaitElementVisivel(locator.inputEmail);
-        help.getWaitElementVisivel(locator.inputSenha);
+        HelpDriverClass.getWaitElementVisivel(locator.inputEmail);
+        HelpDriverClass.getWaitElementVisivel(locator.inputSenha);
         locator.inputEmail.sendKeys(mail);
         locator.inputSenha.sendKeys(s);
     }
@@ -48,13 +47,13 @@ public class LoginPageActions {
 
     private boolean getListMenu() {
         act.moveToElement(locator.menuMinhaConta.findElement(By.xpath(""))).click().perform();
-        help.getWaitElementVisivel(locator.menuMinhaConta.findElement(By.xpath("mtc-dropdown/div/ul")));
+        HelpDriverClass.getWaitElementVisivel(locator.menuMinhaConta.findElement(By.xpath("mtc-dropdown/div/ul")));
         List<WebElement> listMenu = locator.menuMinhaConta.findElements(By.xpath("mtc-dropdown/div/ul/li"));
         return listMenu.size() == 3;
     }
 
     public void clicarEmlogin() {
-        help.getWaitElementVisivel(locator.clickFacaLogin);
+        HelpDriverClass.getWaitElementVisivel(locator.clickFacaLogin);
         act.moveToElement(locator.clickFacaLogin).click().perform();
         act.pause(Duration.ofSeconds(2));
     }

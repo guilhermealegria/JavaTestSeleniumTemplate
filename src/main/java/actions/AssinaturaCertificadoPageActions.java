@@ -8,8 +8,7 @@ import utils.HelpDriverClass;
 
 public class AssinaturaCertificadoPageActions {
     AssinaturaCertificadoPageLocators locators;
-    HelpDriverClass help = new HelpDriverClass();
-    Actions actions = new Actions(help.getDriver());
+    Actions actions = new Actions(HelpDriverClass.getDriver());
     public AssinaturaCertificadoPageActions(){
         this.locators = new AssinaturaCertificadoPageLocators();
         PageFactory.initElements(HelpDriverClass.getDriver(), locators);

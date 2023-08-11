@@ -15,10 +15,10 @@ public class CertificadoPagamentoPageActions {
     CertificadoPagamentoPageLocators locators;
     HelpDataUserClass data = new HelpDataUserClass();
     UserClass usuario = data.getUser();
-    HelpDriverClass help = new HelpDriverClass();
 
-    Actions act = new Actions(help.getDriver());
-    JavascriptExecutor js = (JavascriptExecutor) help.getDriver();
+
+    Actions act = new Actions(HelpDriverClass.getDriver());
+    JavascriptExecutor js = (JavascriptExecutor) HelpDriverClass.getDriver();
 
     public CertificadoPagamentoPageActions() throws Exception {
         this.locators = new CertificadoPagamentoPageLocators();
@@ -54,6 +54,6 @@ public class CertificadoPagamentoPageActions {
     }
 
     public boolean validarMensagemdeSucessodoPedido(String mensagem) {
-        return help.getWaitConteudoVisivel(locators.textSucess, mensagem);
+        return HelpDriverClass.getWaitConteudoVisivel(locators.textSucess, mensagem);
     }
 }

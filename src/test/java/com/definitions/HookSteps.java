@@ -20,7 +20,7 @@ public class HookSteps {
 
     @Before
     public static void before_setUp() throws MalformedURLException {
-        HelpDriverClass.setUpDriver("local");
+        HelpDriverClass.setUpDriver("remote");
     }
 
     @After

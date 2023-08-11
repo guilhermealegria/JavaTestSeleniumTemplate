@@ -15,7 +15,6 @@ public class RegistrodeUtilizadorPageActions {
     HelpDataUserClass data = new HelpDataUserClass();
 
     UserClass usuario = data.getUser();
-    HelpDriverClass help = new HelpDriverClass();
 
     public RegistrodeUtilizadorPageActions() throws Exception {
         this.locator = new RegistrodeUtilizadorPageLocators();
@@ -101,15 +100,15 @@ public class RegistrodeUtilizadorPageActions {
     }
 
     public boolean validarModaldeMensagemdeSucesso(String sucesso, String mensagem) {
-        help.getWaitElementVisivel(locator.modalRegistro.findElement(By.cssSelector("h3")));
-        help.getWaitElementVisivel(locator.modalRegistro.findElement(By.cssSelector("p")));
+        HelpDriverClass.getWaitElementVisivel(locator.modalRegistro.findElement(By.cssSelector("h3")));
+        HelpDriverClass.getWaitElementVisivel(locator.modalRegistro.findElement(By.cssSelector("p")));
         return (locator.modalRegistro.findElement(By.cssSelector("h3")).getText().contains(sucesso) &&
                 locator.modalRegistro.findElement(By.cssSelector("p")).getText().contains(mensagem));
     }
 
     public boolean validarMensagemIndicativaEmailRegistrado(String mensagem) {
         String mensagemAtual = null;
-        if(help.getWaitConteudoVisivel(locator.modalRegistro.findElement(By.cssSelector(" form > p")), mensagem))
+        if(HelpDriverClass.getWaitConteudoVisivel(locator.modalRegistro.findElement(By.cssSelector(" form > p")), mensagem))
             mensagemAtual = locator.modalRegistro.findElement(By.cssSelector("p")).getText();
         return mensagemAtual.contains(mensagem);
     }

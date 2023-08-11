@@ -14,32 +14,31 @@ import java.time.Duration;
 public class CaracteristicadoCertificadoPageActions {
 
     CaracteristicadoCertificadoPageLocators locators;
-    HelpDriverClass help = new HelpDriverClass();
-    Actions actions = new Actions(help.getDriver());
-    JavascriptExecutor js = (JavascriptExecutor) help.getDriver();
+    Actions actions = new Actions(HelpDriverClass.getDriver());
+    JavascriptExecutor js = (JavascriptExecutor) HelpDriverClass.getDriver();
 
 
 
     public CaracteristicadoCertificadoPageActions() {
         this.locators = new CaracteristicadoCertificadoPageLocators();
-        PageFactory.initElements(help.getDriver(), locators);
+        PageFactory.initElements(HelpDriverClass.getDriver(), locators);
     }
 
 
     public void clicarnoBotaoContinuar() {
-        help.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        HelpDriverClass.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
         js.executeScript("arguments[0].scrollIntoView();", locators.botaoContinuar);
         locators.botaoContinuar.click();
     }
 
 
     public boolean validarExibicaodoModaldeTermoseCondicoes(){
-        help.getWaitElementVisivel(locators.modalTermoseCondicoes);
+        HelpDriverClass.getWaitElementVisivel(locators.modalTermoseCondicoes);
          return  locators.modalTermoseCondicoes.getText().contains("Termos & Condições");
     }
 
     public void clicarnoCheckboxTermoseCondicoes() {
-        help.getWaitElementVisivel(locators.checkBox);
+        HelpDriverClass.getWaitElementVisivel(locators.checkBox);
         locators.checkBox.click();
     }
 
@@ -48,7 +47,7 @@ public class CaracteristicadoCertificadoPageActions {
     }
 
     public void clicarnoBotaoContinuarModalTermos() {
-        help.getWaitElementHabilito(locators.botaoContinuarModal);
+        HelpDriverClass.getWaitElementHabilito(locators.botaoContinuarModal);
         locators.botaoContinuarModal.click();
     }
 }

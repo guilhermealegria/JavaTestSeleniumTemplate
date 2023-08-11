@@ -20,16 +20,13 @@ public class HelpDriverClass {
 
     private static Wait<WebDriver> wait;
 
-    public HelpDriverClass(){
-
-    }
     private HelpDriverClass(String browsertype) throws MalformedURLException {
         if(browsertype == "remote") {
             ChromeOptions chromeOpt = new ChromeOptions();
-            chromeOpt.setCapability("browserVersion", "114.0");
+            chromeOpt.setCapability("browserVersion", "101.0");
             chromeOpt.setCapability("platformName", "linux");
-            driver = new RemoteWebDriver(new URL("https://selenium-hub.appai.org.br/"), chromeOpt);
-        } else if (browsertype == "remote"){
+            driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444/"), chromeOpt);
+        } else if (browsertype == "local"){
             driver = new ChromeDriver();
         }
         driver.manage().deleteAllCookies();
@@ -60,19 +57,19 @@ public class HelpDriverClass {
         driver.navigate().to(url);
     }
 
-    public void getWaitElementVisivel(WebElement input){
+    public static void getWaitElementVisivel(WebElement input){
         wait.until(ExpectedConditions.visibilityOf(input));
     }
     public boolean getBooleanWaitElementVisivel(WebElement input){
         return wait.until( driver -> input.isDisplayed());
     }
 
-    public boolean getWaitConteudoVisivel(WebElement input, String texto){
+    public static boolean getWaitConteudoVisivel(WebElement input, String texto){
         return wait.until(ExpectedConditions.textToBePresentInElement(input,texto));
     }
 
 
-    public void getWaitElementHabilito(WebElement botaoContinuarModal) {
+    public static void getWaitElementHabilito(WebElement botaoContinuarModal) {
         wait.until(ExpectedConditions.elementToBeClickable(botaoContinuarModal));
     }
 
