@@ -9,7 +9,9 @@ public class AssinaturaCertificadoPageDefinitions {
     AssinaturaCertificadoPageActions page = new AssinaturaCertificadoPageActions();
 
     //Steps da pagina de seleção de opções de assinatura
-    @When("seleciono a utilização do produto como {string})")
+
+
+    @When("seleciono a utilização do produto como {string}")
     public void selecionarUtilizacaodoProduto(String utlizacao){
         page.selecionarUtilizacaodoProduto(utlizacao);
     }
@@ -21,7 +23,5 @@ public class AssinaturaCertificadoPageDefinitions {
     public void clicarnoBotaoComprar(String opcao){
         page.clicarNoBotaoComprarParaaOpcaodeAssinatura(opcao);
     }
-
-
 
 }

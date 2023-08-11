@@ -1,3 +1,4 @@
+@execution
 Feature: Efetuar Login
 
   Background:
@@ -9,7 +10,7 @@ Feature: Efetuar Login
    Scenario: Validar modal de login
      Then modal de login é apresentado com sucesso
 
-  @execution
+
     Scenario: Logar com sucesso
       When efetuo login com sucesso
       Then o menu minha conta apresenta as opções "OS MEUS PEDIDOS" "OS MEUS CERTIFICADOS" "LOGOUT"

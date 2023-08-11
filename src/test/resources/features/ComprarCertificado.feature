@@ -3,13 +3,12 @@ Feature: Comprar Certificado Digital
   Background:
     Given o navegador está aberto
     And navego a pagina de loja online
-    And acesso a area pessoal
-    And efetuo login com sucesso
 
     Scenario: Comprar Certificado com sucesso
       When seleciono a utilização do produto como "Pessoas ou Organizações"
       And Seleciono o fim de utilização como "Pessoal"
       And clico no botão Comprar na opção de "Individual Particular"
+      And efetuo login com sucesso na area de login
       Then clico no botão Continuar com as caracteristicas do certificado em default
       And o modal de termos e condições é apresentado
       Then clico no link de termos e condições para download

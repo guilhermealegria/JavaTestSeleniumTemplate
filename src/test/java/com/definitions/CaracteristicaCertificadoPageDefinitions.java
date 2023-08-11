@@ -4,16 +4,21 @@ import actions.CaracteristicadoCertificadoPageActions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class CaracteristicaCertificadoPageDefinitions {
     CaracteristicadoCertificadoPageActions page = new CaracteristicadoCertificadoPageActions();
+
+    public CaracteristicaCertificadoPageDefinitions() throws Exception {
+    }
+
     @Then("clico no botão Continuar com as caracteristicas do certificado em default")
     public void clicarnoBotaoContinuarcomInformacoesDefault(){
         page.clicarnoBotaoContinuar();
     }
     @And("o modal de termos e condições é apresentado")
-    public void validarExibicaoModalTermos(){
-        page.validarExibicaodoModaldeTermoseCondicoes();
+    public void validarExibicaoModalTermos() throws InterruptedException {
+        Assert.assertTrue(page.validarExibicaodoModaldeTermoseCondicoes());
     }
     @Then("clico no link de termos e condições para download")
     public void clicarNoLinkdeTermosparaDowload(){

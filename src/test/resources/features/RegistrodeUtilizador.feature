@@ -1,3 +1,4 @@
+
     Feature: Registro de Utilizador
     This feature to test
 
@@ -10,7 +11,6 @@
             And clico em aceitar termos
             And clico no botão continuar
             Then todos os campos de preenchimento obrigatório estam apresentando mensagem "Campo obrigatório"
-
 
         Scenario Outline: Regitrar utilizador com sucesso.
             When preencho o campo nome nome
@@ -28,6 +28,7 @@
 
         Scenario: Validar botao continuar desabilitado
             Then o botão continuar está desabilitado
+
 
         Scenario Outline: Validar botao continuar desabilitado preenchendo campos obrigatórios sem aceitar politica de privacidade
             When preencho os campos  "<primeiroNome>" "<apelido>" "<telefone>" "<e-mail>"

@@ -8,9 +8,6 @@ import utils.HelpDataUserClass;
 import utils.HelpDriverClass;
 import utils.UserClass;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-
 
 public class RegistrodeUtilizadorPageActions {
 
@@ -104,8 +101,8 @@ public class RegistrodeUtilizadorPageActions {
     }
 
     public boolean validarModaldeMensagemdeSucesso(String sucesso, String mensagem) {
-        help.getWait(locator.modalRegistro.findElement(By.cssSelector("h3")));
-        help.getWait(locator.modalRegistro.findElement(By.cssSelector("p")));
+        help.getWaitElementVisivel(locator.modalRegistro.findElement(By.cssSelector("h3")));
+        help.getWaitElementVisivel(locator.modalRegistro.findElement(By.cssSelector("p")));
         return (locator.modalRegistro.findElement(By.cssSelector("h3")).getText().contains(sucesso) &&
                 locator.modalRegistro.findElement(By.cssSelector("p")).getText().contains(mensagem));
     }

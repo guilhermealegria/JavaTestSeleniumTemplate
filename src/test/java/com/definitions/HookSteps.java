@@ -28,9 +28,8 @@ public class HookSteps {
         if(scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) HelpDriverClass.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
-        } else {
-            HelpDriverClass.tearDown();
         }
+            HelpDriverClass.tearDown();
     }
 
     @Given("o navegador está aberto")
@@ -48,10 +47,15 @@ public class HookSteps {
     }
 
     @When("efetuo login com sucesso")
-    public CaracteristicadoCertificadoPageActions preencherCamposdeLogincomUsuarioValido(){
+    public void preencherCamposdeLogincomUsuarioValido()  {
         page.preencherLoginSucess("guilhermemoraes.3@gmail.com", "@Alegria1991");
         page.clickBotaoIniciarSessao();
-        return new CaracteristicadoCertificadoPageActions();
+    }
+    @And("efetuo login com sucesso na area de login")
+    public void preencherCamposdeLoginDepois(){
+        page.clicarEmlogin();
+        page.preencherLoginSucess("guilhermemoraes.3@gmail.com", "@Alegria1991");
+        page.clickBotaoIniciarSessao();
     }
 
 }

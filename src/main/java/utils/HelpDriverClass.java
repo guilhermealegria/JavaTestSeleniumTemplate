@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,9 +29,10 @@ public class HelpDriverClass {
             chromeOpt.setCapability("browserVersion", "114.0");
             chromeOpt.setCapability("platformName", "linux");
             driver = new RemoteWebDriver(new URL("https://selenium-hub.appai.org.br/"), chromeOpt);
-        } else if (browsertype == "local"){
+        } else if (browsertype == "remote"){
             driver = new ChromeDriver();
         }
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         this.wait = new WebDriverWait(driver, Duration.ofMillis(10000));
@@ -58,11 +60,20 @@ public class HelpDriverClass {
         driver.navigate().to(url);
     }
 
-    public void getWait(WebElement input){
+    public void getWaitElementVisivel(WebElement input){
         wait.until(ExpectedConditions.visibilityOf(input));
+    }
+    public boolean getBooleanWaitElementVisivel(WebElement input){
+        return wait.until( driver -> input.isDisplayed());
     }
 
     public boolean getWaitConteudoVisivel(WebElement input, String texto){
         return wait.until(ExpectedConditions.textToBePresentInElement(input,texto));
     }
+
+
+    public void getWaitElementHabilito(WebElement botaoContinuarModal) {
+        wait.until(ExpectedConditions.elementToBeClickable(botaoContinuarModal));
+    }
+
 }

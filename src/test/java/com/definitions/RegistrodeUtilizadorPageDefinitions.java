@@ -22,7 +22,6 @@ public class RegistrodeUtilizadorPageDefinitions {
     }
     @And("clico no botão continuar")
     public void clicarnoBotaoContinuar(){
-
         page.clickInButtonContinuar();
     }
     @Then ("todos os campos de preenchimento obrigatório estam apresentando mensagem {string}")
@@ -62,7 +61,7 @@ public class RegistrodeUtilizadorPageDefinitions {
     public void preencherCampoPrefixocomValorIncorreto(String texto){
         page.preencherCampoPrefixo(texto);
     }
-    @Then ("é apresentada mensagem indicativa {string}")
+    @Then ("é apresentada mensagem indicativa no campo nome {string}")
     public void validarMensagemdeErronoCampoNome(String mensagem){
         Assert.assertTrue(page.validarMensagemdeErronoCampoNome(mensagem));
     }

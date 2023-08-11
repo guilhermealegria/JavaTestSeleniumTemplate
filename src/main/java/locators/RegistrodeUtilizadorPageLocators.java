@@ -24,6 +24,6 @@ public class RegistrodeUtilizadorPageLocators {
 
     @FindBy(xpath = "//mtc-txt-input[@formcontrolname='phonePrefix']")
     public WebElement inputPrefixo;
-    @FindBy(xpath = "//div[@class='modal-body']")
+    @FindBy(xpath = "//div[@class='modal-body']//mtc-register/div")
     public WebElement modalRegistro;
 }

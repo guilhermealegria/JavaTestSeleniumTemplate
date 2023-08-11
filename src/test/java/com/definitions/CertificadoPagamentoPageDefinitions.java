@@ -8,11 +8,14 @@ import org.junit.Assert;
 public class CertificadoPagamentoPageDefinitions {
     CertificadoPagamentoPageActions page = new CertificadoPagamentoPageActions();
 
+    public CertificadoPagamentoPageDefinitions() throws Exception {
+    }
+
     @And("preencho os dados para pagamento")
     public void preencherDadosparaPagamento(){
         page.preenchoosDadosparaPagamento();
     }
-    @And("seleciono o método de pagamento como {String}")
+    @And("seleciono o método de pagamento como {string}")
     public void selecionarMetododePagamento(String metodo){
         page.selecionooMetododePagamento(metodo);
     }
